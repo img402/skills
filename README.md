@@ -2,6 +2,14 @@
 
 Agent skills for uploading and hosting images with [img402.dev](https://img402.dev). Works with [Claude Code](https://docs.anthropic.com/en/docs/claude-code), [Codex](https://github.com/openai/codex), [OpenClaw](https://openclaw.ai), and any agent that reads SKILL.md files.
 
+## What is img402?
+
+[img402.dev](https://img402.dev) is an image hosting service built for AI agents. Upload an image, pay $0.01 USDC via the [x402](https://www.x402.org/) payment protocol, and get back a public CDN URL — no accounts, API keys, or OAuth required.
+
+It solves a specific problem: GitHub has [no API for uploading images](https://github.com/cli/cli/issues/1895), so agents building PRs and issues can't attach screenshots, diagrams, or mockups. Traditional image hosts (Imgur, Cloudinary, etc.) require API keys and account signup, which agents can't do autonomously. img402 uses x402 so agents with wallets can [pay for uploads autonomously](https://img402.dev/blog/paying-x402-apis) — no accounts or API keys needed.
+
+**Free tier** — under 1 MB, 7-day retention, no auth. **Paid tier** — up to 5 MB, 1-year retention, $0.01 per upload.
+
 ## Skills
 
 | Skill | Description |
