@@ -19,48 +19,62 @@ It solves a specific problem: GitHub has [no API for uploading images](https://g
 
 ## Installation
 
+Pick the method that matches your agent. Each skill is just a folder with a `SKILL.md` file — no dependencies, no build step.
+
 ### [skills.sh](https://skills.sh)
+
+The universal installer. Works with Claude Code, Codex, Copilot, and [other supported agents](https://skills.sh).
 
 ```bash
 npx skills add img402/skills
 ```
 
+This downloads both skills and places them in the correct directory for your agent.
+
 ### Claude Code
 
-Copy the skill folder into `.claude/skills/` (project-level) or `~/.claude/skills/` (user-level):
+Clone this repo (or download the skill folders) and copy them into your Claude Code skills directory. Project-level skills apply to one repo; user-level skills are available everywhere.
 
 ```bash
-# Project-level
+# Project-level — just this repo
 cp -r skills/image-hosting .claude/skills/
 cp -r skills/github-image-hosting .claude/skills/
 
-# User-level (available in all projects)
+# User-level — all projects
 cp -r skills/image-hosting ~/.claude/skills/
 cp -r skills/github-image-hosting ~/.claude/skills/
 ```
 
+Claude Code picks up new skills automatically — no restart needed.
+
 ### Codex
 
-Copy the skill folder into `.agents/skills/` (project-level) or `~/.agents/skills/` (user-level):
+Same idea as Claude Code, but Codex uses `.agents/skills/` instead of `.claude/skills/`.
 
 ```bash
 # Project-level
 cp -r skills/image-hosting .agents/skills/
+cp -r skills/github-image-hosting .agents/skills/
 
-# User-level (available in all projects)
+# User-level — all projects
 cp -r skills/image-hosting ~/.agents/skills/
+cp -r skills/github-image-hosting ~/.agents/skills/
 ```
 
 ### OpenClaw
+
+Install from [ClawHub](https://clawhub.ai), OpenClaw's skill registry:
 
 ```bash
 clawhub install image-hosting
 clawhub install github-image-hosting
 ```
 
-### Manual
+By default, skills are installed into `./skills/` under your current directory. Override with `--workdir` or set `CLAWHUB_WORKDIR`.
 
-Copy the `SKILL.md` file into your agent's skills directory. The skill is a single file with no dependencies.
+### Other agents
+
+A skill is just a `SKILL.md` file with instructions your agent reads before acting. If your agent supports skills or custom instructions, copy the `SKILL.md` into wherever it looks for them. If it doesn't have a skills system, paste the contents of `SKILL.md` into your agent's system prompt or instructions file.
 
 ## License
 
