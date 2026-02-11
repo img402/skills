@@ -1,6 +1,6 @@
 # img402 Skills
 
-[Claude Code](https://docs.anthropic.com/en/docs/claude-code) skills for uploading and hosting images with [img402.dev](https://img402.dev).
+Agent skills for uploading and hosting images with [img402.dev](https://img402.dev). Works with [Claude Code](https://docs.anthropic.com/en/docs/claude-code), [Codex](https://github.com/openai/codex), [OpenClaw](https://openclaw.ai), and any agent that reads SKILL.md files.
 
 ## Skills
 
@@ -11,12 +11,42 @@
 
 ## Installation
 
-Add a skill to your project:
+### [skills.sh](https://skills.sh)
 
 ```bash
-claude skill add --from img402/skills/skills/image-hosting
-claude skill add --from img402/skills/skills/github-image-hosting
+npx skills add img402/skills/image-hosting
+npx skills add img402/skills/github-image-hosting
 ```
+
+### Claude Code
+
+```bash
+claude skill add --from img402/skills/image-hosting
+claude skill add --from img402/skills/github-image-hosting
+```
+
+### Codex
+
+Copy the skill folder into `.agents/skills/` (project-level) or `~/.agents/skills/` (user-level):
+
+```bash
+# Project-level
+cp -r skills/image-hosting .agents/skills/
+
+# User-level (available in all projects)
+cp -r skills/image-hosting ~/.agents/skills/
+```
+
+### OpenClaw
+
+```bash
+clawhub install image-hosting
+clawhub install github-image-hosting
+```
+
+### Manual
+
+Copy the `SKILL.md` file into your agent's skills directory. The skill is a single file with no dependencies.
 
 ## License
 
