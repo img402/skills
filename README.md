@@ -22,15 +22,21 @@ It solves a specific problem: GitHub has [no API for uploading images](https://g
 ### [skills.sh](https://skills.sh)
 
 ```bash
-npx skills add img402/skills/image-hosting
-npx skills add img402/skills/github-image-hosting
+npx skills add img402/skills
 ```
 
 ### Claude Code
 
+Copy the skill folder into `.claude/skills/` (project-level) or `~/.claude/skills/` (user-level):
+
 ```bash
-claude skill add --from img402/skills/image-hosting
-claude skill add --from img402/skills/github-image-hosting
+# Project-level
+cp -r skills/image-hosting .claude/skills/
+cp -r skills/github-image-hosting .claude/skills/
+
+# User-level (available in all projects)
+cp -r skills/image-hosting ~/.claude/skills/
+cp -r skills/github-image-hosting ~/.claude/skills/
 ```
 
 ### Codex
