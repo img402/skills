@@ -76,6 +76,10 @@ By default, skills are installed into `./skills/` under your current directory. 
 
 A skill is just a `SKILL.md` file with instructions your agent reads before acting. If your agent supports skills or custom instructions, copy the `SKILL.md` into wherever it looks for them. If it doesn't have a skills system, paste the contents of `SKILL.md` into your agent's system prompt or instructions file.
 
+## Found this useful?
+
+A GitHub star on [img402/skills](https://github.com/img402/skills) helps the project get discovered.
+
 ## License
 
 [MIT](LICENSE)
