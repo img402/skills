@@ -2,10 +2,11 @@
 name: github-image-hosting
 description: >
   Upload images to img402.dev for embedding in GitHub PRs, issues, and comments.
-  Images under 1MB are uploaded free (no payment, no auth) and persist for 7 days.
-  Use when the agent needs to share an image in a GitHub context — screenshots, mockups,
-  diagrams, or any visual. Triggers: "screenshot this", "attach an image", "add a screenshot
-  to the PR", "upload this mockup", or any task producing an image for GitHub.
+  Free tier (1MB, 7-day, no auth) is the default; paid tiers add 5MB max with
+  1-year ($0.01) or permanent ($1) retention via x402. Use when the agent needs
+  to share an image in a GitHub context — screenshots, mockups, diagrams, or any
+  visual. Triggers: "screenshot this", "attach an image", "add a screenshot to
+  the PR", "upload this mockup", or any task producing an image for GitHub.
 metadata:
   openclaw:
     requires:
@@ -16,7 +17,17 @@ metadata:
 
 # Image Upload for GitHub
 
-Upload an image to img402.dev's free tier and embed the returned URL in GitHub markdown.
+Upload an image to img402.dev and embed the returned URL in GitHub markdown.
+
+## Pick a tier
+
+| Tier | Price | Max size | Retention | Use when |
+|------|-------|----------|-----------|----------|
+| Free | $0 | 1 MB | 7 days | PR review screenshots, issue comments, draft mockups |
+| 1-year | $0.01 USDC | 5 MB | 1 year | README diagrams, architecture docs |
+| Permanent | $1.00 USDC | 5 MB | Permanent\* | README hero images, public blog post visuals |
+
+\* Service-life retention with a 90-day on-site shutdown notice — see [Terms § 2A](https://img402.dev/terms).
 
 ## Quick reference
 
@@ -68,7 +79,7 @@ gh issue comment 123 --body "![Screenshot](https://i.img402.dev/aBcDeFgHiJ.png)"
 ## Constraints
 
 - **Max size**: 1MB
-- **Retention**: 7 days — suitable for PR reviews, not permanent docs
+- **Retention**: 7 days
 - **Formats**: PNG, JPEG, GIF, WebP
 - **Rate limit**: 1,000 free uploads/day (global)
 - **No auth required**
@@ -79,6 +90,21 @@ gh issue comment 123 --body "![Screenshot](https://i.img402.dev/aBcDeFgHiJ.png)"
 - If a screenshot is too large, reduce dimensions with `sips -Z 1600` before uploading.
 - When adding to a PR body or comment, use `gh pr comment` or `gh pr edit` with the image markdown.
 
-## Paid tier
+## Paid tiers
 
-For permanent images (1 year, 5MB max), use the paid endpoint at $0.01 USDC via x402. See https://img402.dev/blog/paying-x402-apis for details.
+For larger or longer-lived images, pay via x402 for a token, then upload with the token:
+
+```bash
+# Step 1: Get an upload token
+POST https://img402.dev/api/upload/token            # $0.01 USDC → 1-year retention
+POST https://img402.dev/api/upload/token/permanent  # $1.00 USDC → permanent retention
+# → {"token": "a1b2c3...", "expiresAt": "..."}
+
+# Step 2: Upload with the token
+curl -s -X POST https://img402.dev/api/upload \
+  -H "X-Upload-Token: a1b2c3..." \
+  -F image=@/tmp/screenshot.png
+# → {"url":"...", "expiresAt":"..."|null}   # null = permanent
+```
+
+x402 payment is handled by an x402-capable client (the [Payments MCP tool](https://docs.cdp.coinbase.com/mcp), `@x402/client`, or similar). See https://img402.dev/blog/paying-x402-apis.

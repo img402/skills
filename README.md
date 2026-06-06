@@ -8,7 +8,7 @@ Agent skills for uploading and hosting images with [img402.dev](https://img402.d
 
 It solves a specific problem: GitHub has [no API for uploading images](https://github.com/cli/cli/issues/1895), so agents building PRs and issues can't attach screenshots, diagrams, or mockups. Traditional image hosts (Imgur, Cloudinary, etc.) require API keys and account signup, which agents can't do autonomously. img402 uses x402 so agents with wallets can [pay for uploads autonomously](https://img402.dev/blog/paying-x402-apis) — no accounts or API keys needed.
 
-**Free tier** — under 1 MB, 7-day retention, no auth. **Paid tier** — up to 5 MB, 1-year retention, $0.01 per upload.
+**Free tier** — under 1 MB, 7-day retention, no auth. **$0.01 tier** — up to 5 MB, 1-year retention. **$1 tier** — up to 5 MB, permanent retention (90-day on-site shutdown notice). All paid tiers via x402 on Base or Solana.
 
 ## Skills
 
