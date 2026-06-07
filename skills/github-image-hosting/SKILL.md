@@ -108,3 +108,7 @@ curl -s -X POST https://img402.dev/api/upload \
 ```
 
 x402 payment is handled by an x402-capable client (the [Payments MCP tool](https://docs.cdp.coinbase.com/mcp), `@x402/client`, or similar). See https://img402.dev/blog/paying-x402-apis.
+
+## Public access
+
+**Uploaded images are reachable by anyone with the URL — there is no auth on serving.** Do not upload screenshots of internal systems, personal information, secrets, API keys, or anything else that shouldn't be public. Once uploaded, the only way to remove an image is to wait for expiry (free / 1-year tiers) or email privacy@img402.dev.
