@@ -17,7 +17,7 @@ metadata:
 
 # Image Upload for GitHub
 
-Upload an image to img402.dev and embed the returned URL in GitHub markdown.
+Upload an image to [img402.dev](https://img402.dev) and embed the returned URL in GitHub markdown.
 
 ## Pick a tier
 

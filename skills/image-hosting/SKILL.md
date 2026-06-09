@@ -15,7 +15,7 @@ metadata:
 
 # Image Hosting — img402
 
-Upload an image to img402.dev and get a public URL. No account, no API key, no config.
+Upload an image to [img402.dev](https://img402.dev) and get a public URL. No account, no API key, no config.
 
 ## Pick a tier
 
