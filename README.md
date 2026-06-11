@@ -83,3 +83,7 @@ A GitHub star on [img402/skills](https://github.com/img402/skills) helps the pro
 ## License
 
 [MIT](LICENSE)
+
+## Download History
+
+[![Download History](https://skill-history.com/chart/img402/image-hosting.svg)](https://skill-history.com/img402/image-hosting)
