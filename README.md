@@ -4,17 +4,17 @@ Agent skills for uploading and hosting images with [img402.dev](https://img402.d
 
 ## What is img402?
 
-[img402.dev](https://img402.dev) is an image hosting service built for AI agents. Upload an image, pay $0.01 USDC via the [x402](https://www.x402.org/) payment protocol, and get back a public CDN URL — no accounts, API keys, or OAuth required.
+[img402.dev](https://img402.dev) is an image hosting service built for AI agents. Upload an image and get a public CDN URL — no accounts, API keys, or OAuth required. Images over 1 MB can be made permanent for $0.01 USDC via the [x402](https://www.x402.org/) payment protocol.
 
 It solves a specific problem: GitHub has [no API for uploading images](https://github.com/cli/cli/issues/1895), so agents building PRs and issues can't attach screenshots, diagrams, or mockups. Traditional image hosts (Imgur, Cloudinary, etc.) require API keys and account signup, which agents can't do autonomously. img402 uses x402 so agents with wallets can [pay for uploads autonomously](https://img402.dev/blog/paying-x402-apis) — no accounts or API keys needed.
 
-**Free tier** — under 1 MB, 7-day retention, no auth. **$0.01 tier** — up to 5 MB, 1-year retention. **$1 tier** — up to 5 MB, permanent retention (90-day on-site shutdown notice). All paid tiers via x402 on Base or Solana.
+**Free tier** — images 1 MB or under are permanent; larger images up to 10 MB last 30 days. **$0.01 tier** — images up to 10 MB are permanent (service-life retention with a 90-day on-site shutdown notice). The old $1 permanent endpoint remains only for compatibility. Payments use x402 on Base or Solana. See the [API specification](https://img402.dev/openapi.json) for endpoint details.
 
 ## Skills
 
 | Skill | Description |
 |-------|-------------|
-| [image-hosting](skills/image-hosting/) | Upload images to img402.dev and get a public URL. Free tier: 1 MB max, 7-day retention, no auth required. |
+| [image-hosting](skills/image-hosting/) | Upload images to img402.dev and get a public URL. Images 1 MB or under are free and permanent; up to 10 MB is free for 30 days. |
 | [github-image-hosting](skills/github-image-hosting/) | Upload images to img402.dev and embed them in GitHub PRs, issues, and comments via `gh` CLI. |
 
 ## Installation
